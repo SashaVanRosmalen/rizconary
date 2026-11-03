@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +59,7 @@ span {
     width: 45px;
     height: 3px;
     background: #a18bce;
-    margin: 35px auto;
+    margin: 35px auto 0;
     border-radius: 10px;
 }
 
@@ -68,6 +67,59 @@ span {
     max-width: 950px;
     margin: 0 auto;
     padding: 0 25px 100px;
+}
+
+/* Example card */
+
+.example {
+    max-width: 560px;
+    min-height: 150px;
+    margin: 35px auto 45px;
+    padding: 22px 26px;
+    background: #fff;
+    border: 1px solid #eae7e1;
+    border-left: 4px solid #a18bce;
+    border-radius: 14px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.example-word {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #a18bce;
+}
+
+.example-meaning {
+    font-size: 14px;
+    color: #88847d;
+}
+
+.example-sentence {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.example-empty {
+    color: #aaa49a;
+    font-size: 15px;
+    text-align: center;
+}
+
+.example.pop .example-sentence,
+.example.pop .example-word {
+    animation: swap 0.25s ease;
+}
+
+@keyframes swap {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .words {
@@ -90,13 +142,19 @@ span {
     transition: 0.25s ease;
 }
 
-.word:hover {
+.word:hover,
+.word.active {
     background: #a18bce;
     color: white;
     border-color: #a18bce;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px #a18bce35;
     z-index: 2;
+}
+
+.word:focus-visible {
+    outline: 3px solid #a18bce;
+    outline-offset: 3px;
 }
 
 /* Tooltip */
@@ -151,6 +209,17 @@ footer {
         font-size: 13px;
         padding: 11px 16px;
     }
+
+    .example {
+        padding: 18px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .example.pop .example-sentence,
+    .example.pop .example-word {
+        animation: none;
+    }
 }
 </style>
 </head>
@@ -170,48 +239,53 @@ footer {
 </header>
 
 <main class="dictionary">
+
+    <div class="example" id="example" aria-live="polite">
+        <p class="example-empty">Click a word to see it used in a sentence.</p>
+    </div>
+
     <div class="words">
 
-        <div class="word" data-meaning="Pretending to be something you're not.">Larp</div>
-        <div class="word" data-meaning="Charisma or flirting ability.">Rizz</div>
-        <div class="word" data-meaning="Being completely finished or in trouble.">Cooked</div>
-        <div class="word" data-meaning="Someone's natural coolness or presence.">Aura</div>
-        <div class="word" data-meaning="A lie or something untrue.">Cap</div>
-        <div class="word" data-meaning="Something mediocre or average.">Mid</div>
-        <div class="word" data-meaning="Talking way too much.">Yapping</div>
-        <div class="word" data-meaning="For real.">Fr</div>
-        <div class="word" data-meaning="An independent, self-reliant person.">Sigma</div>
-        <div class="word" data-meaning="Exaggerated praise towards someone.">Glazing</div>
-        <div class="word" data-meaning="Something extremely good.">Bussin</div>
-        <div class="word" data-meaning="A win or success.">W</div>
-        <div class="word" data-meaning="A loss or failure.">L</div>
-        <div class="word" data-meaning="Suspicious or questionable.">Sus</div>
-        <div class="word" data-meaning="Someone's personal backstory.">Lore</div>
-        <div class="word" data-meaning="An enemy or rival.">Opp</div>
-        <div class="word" data-meaning="Doing things specifically to look cool.">Aura farming</div>
-        <div class="word" data-meaning="Internet content that has melted your brain.">Brainrot</div>
-        <div class="word" data-meaning="Pretending to be delusional.">Delulu</div>
-        <div class="word" data-meaning="Extremely stylish clothing.">Drip</div>
-        <div class="word" data-meaning="Stealing a portion of someone's food.">Fanum tax</div>
-        <div class="word" data-meaning="Something really good.">Fire</div>
-        <div class="word" data-meaning="Greatest of all time.">GOAT</div>
-        <div class="word" data-meaning="A sudden feeling of embarrassment or dislike.">Ick</div>
-        <div class="word" data-meaning="Let someone continue; they might be onto something.">Let him cook</div>
-        <div class="word" data-meaning="Focus seriously on something.">Lock in</div>
-        <div class="word" data-meaning="Secretly or somewhat.">Lowkey</div>
-        <div class="word" data-meaning="Someone acting like a video game character.">NPC</div>
-        <div class="word" data-meaning="Something weird, bizarre or cursed.">Ohio</div>
-        <div class="word" data-meaning="A cute nickname for someone you like.">Pookie</div>
-        <div class="word" data-meaning="Charisma or natural charm.">Valid</div>
-        <div class="word" data-meaning="An expression of disbelief.">Bruh</div>
-        <div class="word" data-meaning="Spend less time online.">Touch grass</div>
-        <div class="word" data-meaning="Content designed to make people angry.">Ragebait</div>
-        <div class="word" data-meaning="Being bitter or annoyed.">Salty</div>
-        <div class="word" data-meaning="Do something exceptionally well.">Slay</div>
-        <div class="word" data-meaning="An exaggerated reaction to someone's appearance.">Gyatt</div>
-        <div class="word" data-meaning="Something suspiciously questionable.">Zesty</div>
-        <div class="word" data-meaning="Being caught with undeniable proof.">Caught in 4K</div>
-        <div class="word" data-meaning="Lose your temper or act recklessly.">Crash out</div>
+        <div class="word" data-meaning="Pretending to be something you're not." data-example="He's larping being a JoJo fan, he's never even watched it.">Larp</div>
+        <div class="word" data-meaning="Charisma or flirting ability." data-example="Did you see how he talked to her? He's got unspoken rizz.">Rizz</div>
+        <div class="word" data-meaning="Being completely finished or in trouble." data-example="I forgot to study for the test. I'm so cooked.">Cooked</div>
+        <div class="word" data-meaning="Someone's natural coolness or presence." data-example="He walked in with his hood up and everyone went quiet. Infinite aura.">Aura</div>
+        <div class="word" data-meaning="A lie or something untrue." data-example="You ran a 4-minute mile? That's cap.">Cap</div>
+        <div class="word" data-meaning="Something mediocre or average." data-example="The movie had a great trailer but the actual film was mid.">Mid</div>
+        <div class="word" data-meaning="Talking way too much." data-example="He's been yapping about his fantasy football team for an hour.">Yapping</div>
+        <div class="word" data-meaning="For real." data-example="That test was so hard. Fr.">Fr</div>
+        <div class="word" data-meaning="An independent, self-reliant person." data-example="He eats lunch alone and doesn't care what anyone thinks. Total sigma.">Sigma</div>
+        <div class="word" data-meaning="Exaggerated praise towards someone." data-example="Stop glazing him, he just made a normal layup.">Glazing</div>
+        <div class="word" data-meaning="Something extremely good." data-example="This pizza is bussin, you have to try it.">Bussin</div>
+        <div class="word" data-meaning="A win or success." data-example="I got front row tickets. Big W.">W</div>
+        <div class="word" data-meaning="A loss or failure." data-example="My phone died right before the game ended. Huge L.">L</div>
+        <div class="word" data-meaning="Suspicious or questionable." data-example="Why is he acting so weird about the group project? Kinda sus.">Sus</div>
+        <div class="word" data-meaning="Someone's personal backstory." data-example="He moved schools three times. His lore is deep.">Lore</div>
+        <div class="word" data-meaning="An enemy or rival." data-example="Watch out, the opps are waiting by the gym.">Opp</div>
+        <div class="word" data-meaning="Doing things specifically to look cool." data-example="He's just standing there staring at the sunset. Total aura farming.">Aura farming</div>
+        <div class="word" data-meaning="Internet content that has melted your brain." data-example="I watched 3 hours of Skibidi Toilet and now I've got brainrot.">Brainrot</div>
+        <div class="word" data-meaning="Pretending to be delusional." data-example="She thinks the celebrity is going to text her back. She's so delulu.">Delulu</div>
+        <div class="word" data-meaning="Extremely stylish clothing." data-example="Nice jacket and shoes, you've got serious drip today.">Drip</div>
+        <div class="word" data-meaning="Stealing a portion of someone's food." data-example="Give me one fry. It's the fanum tax.">Fanum tax</div>
+        <div class="word" data-meaning="Something really good." data-example="That new song is fire, I've had it on repeat all week.">Fire</div>
+        <div class="word" data-meaning="Greatest of all time." data-example="Messi is the GOAT, no debate.">GOAT</div>
+        <div class="word" data-meaning="A sudden feeling of embarrassment or dislike." data-example="He chewed with his mouth open and I instantly got the ick.">Ick</div>
+        <div class="word" data-meaning="Let someone continue; they might be onto something." data-example="He's about to take the final shot. Let him cook.">Let him cook</div>
+        <div class="word" data-meaning="Focus seriously on something." data-example="Finals are next week, time to lock in.">Lock in</div>
+        <div class="word" data-meaning="Secretly or somewhat." data-example="I'm lowkey excited for the school trip.">Lowkey</div>
+        <div class="word" data-meaning="Someone acting like a video game character." data-example="He walked into the same door three times. He's an NPC.">NPC</div>
+        <div class="word" data-meaning="Something weird, bizarre or cursed." data-example="A guy rode a lawnmower into the store. Only in Ohio.">Ohio</div>
+        <div class="word" data-meaning="A cute nickname for someone you like." data-example="Thanks for helping me with my homework, pookie.">Pookie</div>
+        <div class="word" data-meaning="Charisma or natural charm." data-example="Your idea for the project was actually good. Valid.">Valid</div>
+        <div class="word" data-meaning="An expression of disbelief." data-example="You left your bag on the bus again? Bruh.">Bruh</div>
+        <div class="word" data-meaning="Spend less time online." data-example="You've been arguing in the comments all day. Go touch grass.">Touch grass</div>
+        <div class="word" data-meaning="Content designed to make people angry." data-example="That video saying pineapple is the best pizza topping is pure ragebait.">Ragebait</div>
+        <div class="word" data-meaning="Being bitter or annoyed." data-example="He's still salty that he lost the game last week.">Salty</div>
+        <div class="word" data-meaning="Do something exceptionally well." data-example="You nailed that presentation. Slay.">Slay</div>
+        <div class="word" data-meaning="An exaggerated reaction to someone's appearance." data-example="When he showed up in the full costume the whole class went gyatt.">Gyatt</div>
+        <div class="word" data-meaning="Something suspiciously questionable." data-example="Why does he keep winking at everyone? That's a little zesty.">Zesty</div>
+        <div class="word" data-meaning="Being caught with undeniable proof." data-example="He said he never ate the cookies, but there were crumbs on his shirt. Caught in 4K.">Caught in 4K</div>
+        <div class="word" data-meaning="Lose your temper or act recklessly." data-example="He lost the game and crashed out, throwing the controller across the room.">Crash out</div>
 
     </div>
 </main>
@@ -219,6 +293,59 @@ footer {
 <footer>
     GEN Z DICTIONARY © 2026 · INTERNET CULTURE ARCHIVE <span class="">(AKA BRAM,SASHA AND BEAU)</span>
 </footer>
+
+<script>
+(function () {
+    var box = document.getElementById('example');
+    var words = document.querySelectorAll('.word');
+    var current = null;
+
+    function show(el) {
+        if (current) current.classList.remove('active');
+        el.classList.add('active');
+        current = el;
+
+        box.innerHTML = '';
+
+        var w = document.createElement('div');
+        w.className = 'example-word';
+        w.textContent = el.textContent;
+
+        var m = document.createElement('div');
+        m.className = 'example-meaning';
+        m.textContent = el.getAttribute('data-meaning');
+
+        var s = document.createElement('p');
+        s.className = 'example-sentence';
+        s.textContent = '\u201C' + el.getAttribute('data-example') + '\u201D';
+
+        box.appendChild(w);
+        box.appendChild(m);
+        box.appendChild(s);
+
+        box.classList.remove('pop');
+        void box.offsetWidth;
+        box.classList.add('pop');
+
+        var r = box.getBoundingClientRect();
+        if (r.top < 0 || r.bottom > window.innerHeight) {
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    words.forEach(function (el) {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+        el.addEventListener('click', function () { show(el); });
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                show(el);
+            }
+        });
+    });
+})();
+</script>
 
 </body>
 </html>
