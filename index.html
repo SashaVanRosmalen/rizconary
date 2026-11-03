@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gen Z Dictionary</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f3ef;
+    color: #252525;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    text-align: center;
+}
+
+header {
+    padding: 85px 20px 55px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e8e4dc;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    color: #777269;
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 700;
+    letter-spacing: -4px;
+}
+
+span {
+    color: #a18bce;
+}
+
+.subtitle {
+    color: #88847d;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.divider {
+    width: 45px;
+    height: 3px;
+    background: #a18bce;
+    margin: 35px auto;
+    border-radius: 10px;
+}
+
+.dictionary {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 25px 100px;
+}
+
+.words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.word {
+    position: relative;
+    background: #fff;
+    border: 1px solid #eae7e1;
+    border-radius: 12px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.word:hover {
+    background: #a18bce;
+    color: white;
+    border-color: #a18bce;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px #a18bce35;
+    z-index: 2;
+}
+
+/* Tooltip */
+
+.word::after {
+    content: attr(data-meaning);
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translate(-50%, 8px);
+    background: #252525;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 500;
+    width: max-content;
+    max-width: 220px;
+    white-space: normal;
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.2s ease;
+    box-shadow: 0 5px 20px #0002;
+}
+
+.word:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+footer {
+    padding: 25px;
+    color: #aaa49a;
+    font-size: 12px;
+    border-top: 1px solid #e8e4dc;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding-top: 60px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .word {
+        font-size: 13px;
+        padding: 11px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="tag">THE RIZZIEST DICTIONARY</div>
+
+    <h1>Gen Z <span>Dictionary.</span></h1>
+
+    <p class="subtitle">
+        Understanding the language of your skibidi students.
+    </p>
+
+    <div class="divider"></div>
+</header>
+
+<main class="dictionary">
+    <div class="words">
+
+        <div class="word" data-meaning="Pretending to be something you're not.">Larp</div>
+        <div class="word" data-meaning="Charisma or flirting ability.">Rizz</div>
+        <div class="word" data-meaning="Being completely finished or in trouble.">Cooked</div>
+        <div class="word" data-meaning="Someone's natural coolness or presence.">Aura</div>
+        <div class="word" data-meaning="A lie or something untrue.">Cap</div>
+        <div class="word" data-meaning="Something mediocre or average.">Mid</div>
+        <div class="word" data-meaning="Talking way too much.">Yapping</div>
+        <div class="word" data-meaning="For real.">Fr</div>
+        <div class="word" data-meaning="An independent, self-reliant person.">Sigma</div>
+        <div class="word" data-meaning="Exaggerated praise towards someone.">Glazing</div>
+        <div class="word" data-meaning="Something extremely good.">Bussin</div>
+        <div class="word" data-meaning="A win or success.">W</div>
+        <div class="word" data-meaning="A loss or failure.">L</div>
+        <div class="word" data-meaning="Suspicious or questionable.">Sus</div>
+        <div class="word" data-meaning="Someone's personal backstory.">Lore</div>
+        <div class="word" data-meaning="An enemy or rival.">Opp</div>
+        <div class="word" data-meaning="Doing things specifically to look cool.">Aura farming</div>
+        <div class="word" data-meaning="Internet content that has melted your brain.">Brainrot</div>
+        <div class="word" data-meaning="Pretending to be delusional.">Delulu</div>
+        <div class="word" data-meaning="Extremely stylish clothing.">Drip</div>
+        <div class="word" data-meaning="Stealing a portion of someone's food.">Fanum tax</div>
+        <div class="word" data-meaning="Something really good.">Fire</div>
+        <div class="word" data-meaning="Greatest of all time.">GOAT</div>
+        <div class="word" data-meaning="A sudden feeling of embarrassment or dislike.">Ick</div>
+        <div class="word" data-meaning="Let someone continue; they might be onto something.">Let him cook</div>
+        <div class="word" data-meaning="Focus seriously on something.">Lock in</div>
+        <div class="word" data-meaning="Secretly or somewhat.">Lowkey</div>
+        <div class="word" data-meaning="Someone acting like a video game character.">NPC</div>
+        <div class="word" data-meaning="Something weird, bizarre or cursed.">Ohio</div>
+        <div class="word" data-meaning="A cute nickname for someone you like.">Pookie</div>
+        <div class="word" data-meaning="Charisma or natural charm.">Valid</div>
+        <div class="word" data-meaning="An expression of disbelief.">Bruh</div>
+        <div class="word" data-meaning="Spend less time online.">Touch grass</div>
+        <div class="word" data-meaning="Content designed to make people angry.">Ragebait</div>
+        <div class="word" data-meaning="Being bitter or annoyed.">Salty</div>
+        <div class="word" data-meaning="Do something exceptionally well.">Slay</div>
+        <div class="word" data-meaning="An exaggerated reaction to someone's appearance.">Gyatt</div>
+        <div class="word" data-meaning="Something suspiciously questionable.">Zesty</div>
+        <div class="word" data-meaning="Being caught with undeniable proof.">Caught in 4K</div>
+        <div class="word" data-meaning="Lose your temper or act recklessly.">Crash out</div>
+
+    </div>
+</main>
+
+<footer>
+    GEN Z DICTIONARY © 2026 · INTERNET CULTURE ARCHIVE <span class="">(AKA BRAM,SASHA AND BEAU)</span>
+</footer>
+
+</body>
+</html>
