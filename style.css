@@ -138,7 +138,7 @@ span {
 .word.active {
     background: #a18bce;
     color: white;
-    border: 2ch solid #734dbf;
+    border: 2px solid #734dbf;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px #a18bce35;
     z-index: 2;
