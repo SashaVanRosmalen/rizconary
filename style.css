@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: #f5f3ef;
     color: #252525;
@@ -15,7 +19,33 @@ body {
 }
 
 header {
-    padding: 85px 20px 55px;
+    padding: 20px 20px 55px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 70%;
+    gap: 20px;
+    margin-bottom: 25px;
+
+    .navigation-button {
+        text-decoration: none;
+        color: #252525;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: 0.2s ease;
+
+        &:hover {
+            color: #a18bce;
+            text-decoration: underline;
+            transform: translateY(-2px);
+        }
+    }
+
 }
 
 .tag {
@@ -138,7 +168,7 @@ span {
 .word.active {
     background: #a18bce;
     color: white;
-    border: 2px solid #734dbf;
+    border: 0.2px solid #2a125a;
     transform: translateY(-5px);
     box-shadow: 0 8px 20px #a18bce35;
     z-index: 2;
